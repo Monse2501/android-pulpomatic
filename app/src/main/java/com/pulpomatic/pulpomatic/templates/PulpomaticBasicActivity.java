@@ -2,8 +2,9 @@ package com.pulpomatic.pulpomatic.templates;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -31,6 +32,22 @@ public abstract class PulpomaticBasicActivity extends AppCompatActivity implemen
 
     @Override
     public void initViews() {
+
+    }
+
+
+    /**
+     * Utilizado para cambiar el fragmento en una actividad
+     * @param idLayout Id el layout con el contenido principal
+     * @param fragment Fragmento a mostrar
+     * @param title Título del nuevo fragmento que se va a mostrar
+     */
+    public void changeFragment(int idLayout, Fragment fragment, String title){
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(idLayout, fragment)
+                .commit();
+        getSupportActionBar().setTitle(title);
 
     }
 

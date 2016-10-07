@@ -1,8 +1,8 @@
 package com.pulpomatic.pulpomatic.templates;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
 /**
  * Created by monse2501 on 10/6/16.
@@ -10,25 +10,38 @@ import android.util.Log;
 public abstract class PulpomaticBasicFragment extends Fragment implements InitViews{
 
     @Override
-    public void onActivityCreated(Bundle state) {
-        super.onActivityCreated(state);
-        beforeInitViews();
-        initViews();
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
-    public void beforeInitViews() {
 
+    /**
+     * El fragmento se ha adjuntado al Contexto
+     * @param context contexto de Android
+     */
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
     }
 
+    /**
+     * El fragmento ha sido creado
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
 
+    /**
+     * El fragmento ha sido quitado de su Contexto y ya no está disponible
+     */
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onDetach(){
+        super.onDetach();
     }
+
+
 
 }
